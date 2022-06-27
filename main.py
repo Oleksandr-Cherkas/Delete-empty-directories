@@ -27,19 +27,19 @@ while ((temp == False)) :
         print("Type an integer value that bigger than 0!\n")
 
 listOfDirs = []
-for root, dirs, files in os.walk(".", topdown = False):
+for root, dirs, files in os.walk(".", topdown = False): 
    for name in dirs:
        if getSize(os.path.join(root, name)) <= needed_size:
            print(os.path.join(root, name), folderSize, 'bytes')
            listOfDirs.append(os.path.join(root, name))
 if len(listOfDirs) > 0:
-    delete = input('Delete?\ny - yes\nn - no\n').lower()
+    delete = input('Delete?\ny - yes\nn - no\n').lower() 
     if delete == 'y':
         for i in listOfDirs:
             shutil.rmtree(i)
             print('deleted %s' % i)
     elif delete == 'n':
-        print('Exit')
+        print('Exit.\nBye!')
         sys.exit()
 else:
     print('No directories found with your criteria.')
