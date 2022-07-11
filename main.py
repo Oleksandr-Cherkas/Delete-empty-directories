@@ -11,6 +11,14 @@ def getSize(start_path = '.'):
     return folderSize
 
 def main():
+    listOfDirs = []
+    startDirectory = "."
+    if len(sys.argv) > 1:
+        if os.path.isdir(sys.argv[1]) == False:
+            print('The directory you entered on the command line was not found!')
+            sys.exit()
+        startDirectory = sys.argv[1]
+    
     needed_size = None
     print("Welcome to the program for deleting folders by size.\nIf you run it by accident - type 'exit'\n")
     while True:
@@ -26,15 +34,6 @@ def main():
                 break
         except ValueError:
             print("Type an integer value that bigger than 0!\n")
-
-    listOfDirs = []
-    startDirectory = "."
-    if len(sys.argv) > 1:
-        if os.path.isdir(sys.argv[1]) == False:
-            print('No directories found with your criteria.')
-            sys.exit()
-        startDirectory = sys.argv[1]
-
     currentFolderSize = getSize(os.path.join(startDirectory))
     if currentFolderSize < needed_size:
         print(os.path.join(startDirectory), currentFolderSize, 'bytes')
@@ -56,10 +55,12 @@ def main():
         elif delete == 'n':
             print('Exit.\nBye!')
             sys.exit()
+        else:
+            print('Completing.\nBye!')
+            sys.exit()
     else:
         print('No directories found with your criteria.')
         sys.exit()
-
 
 if __name__ == '__main__':
     main()
