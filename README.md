@@ -6,15 +6,32 @@ Originally created to remove only empty folders, but later modified to include a
 At startup the program automatically works in a current folder, but after updating you also can simply enter the path to another directory (in the command line) to delete the folders in it.
 
 Usage
------
+===========
 ```
 py main.py [path]
 
-optional argument:
-  path                   The operation of this program will be performed on the entered path instead of the current
+Optional argument:
+  path                   The operation of this program will be
+                         performed on the entered path instead of the current
 
 ```
 
-Warning!
+Examples:
+-----
+For Linux:
+```
+py main.py 
 
-The path must be entered separated by two backslashes. Example: C:\\Users\\Desktop
+py main.py C:\Users\Me\Desktop
+```
+
+For Windows:
+```
+py main.py 
+
+py main.py C:\\Users\\Me\\Desktop
+
+py main.py 'C:\Users\Me\Desktop'
+
+py main.py C:/Users/Me/Desktop
+```
